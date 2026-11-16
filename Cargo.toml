@@ -1,0 +1,26 @@
+[package]
+name = "kuroko"
+version = "0.1.0"
+edition = "2021"
+description = "Zero-DevTools vision-driven browser operator for Brave/Chromium in Rust"
+
+[dependencies]
+eframe = "0.31"
+egui = "0.31"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "time"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+xcap = "0.9"
+enigo = "0.6"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
+base64 = "0.22"
+anyhow = "1"
+directories = "6"
+rand = "0.9"
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+strip = true
